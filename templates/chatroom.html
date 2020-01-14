@@ -1,0 +1,46 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Chatroom portal
+{% endblock %}
+
+{% block body %}
+    <h1>Success</h1>
+   <span id="current_user">{{ name }}</span>, your are on channel: <span id="current_channel">{{ channel }}</span>
+   <div class="container">
+       <div class="row">
+           <div class="col-2" id="channels">
+              <h4>Room list</h4>
+             <ul id="channelslist">
+               {% for channel in channels %}
+            <li><a href="chatroom/{{channel}}">{{ channel }}</a></li>
+        {% endfor %}
+        </ul>
+
+           </div>
+           <div class="col-8" id="scroll" style="overflow-y: scroll; height:310px;">
+
+             <h4>You are logged on to {{ channel }} channel</h4>
+             <ul id="chatroom">
+             </ul>
+             </div>
+           <!-- <div class="col-2">
+               <h4>User list</h4>
+               <ul id="userlist">
+                 {% for name in name %}
+              <li><a href="chatroom/{{name}}">{{ name }}</a></li>
+          {% endfor %}
+          </ul>
+           </div> -->
+       </div>
+
+       <div class="row">
+         <div class="col-8" style="margin:0 auto">
+           <input type="text"placeholder="Enter message" id="message">
+          <button data-send="message" id="sendmessage">Send</button>
+         </div>
+       </div>
+
+   </div>
+
+{% endblock %}

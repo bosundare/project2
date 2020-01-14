@@ -1,0 +1,37 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Chatroom
+{% endblock %}
+
+{% block body %}
+        <div class="container">
+
+    <h1>Chat Room Application</h1>
+
+    <div class="login-wrap">
+	<div class="login-html">
+		<input id="tab-2" type="radio" name="tab" class="sign-up" checked><label for="tab-2" class="tab">Chat Room</label>
+
+    <div class="login-form">
+      <form id="createname" action="{{ url_for('index') }}" method="post">
+
+      <div class="sign-up-htm">
+        <div class="group">
+          <label for="user" class="label">Desired Chat Name</label>
+          <input id="name" name="name" type="text" class="input">
+        </div>
+
+        {{ message }}
+        <div class="group">
+					<input type="submit" id="submitroom" class="button" value="Enter Room">
+				</div>
+				<div class="hr"></div>
+				</div>
+        </form>
+
+
+		</div>
+	</div>
+</div>
+{% endblock %}

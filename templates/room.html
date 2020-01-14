@@ -1,0 +1,48 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Available Chatroom
+{% endblock %}
+
+{% block body %}
+        <div class="container">
+
+    <h1>Chat Room Application</h1>
+    <h4>Channels:</h4>
+      <div>
+          <ul>
+          {% for channel in channels %}
+              <li><a href="chatroom/{{channel}}">{{ channel }}</a></li>
+          {% endfor %}
+          </ul>
+      </div>
+    <div class="login-wrap">
+	<div class="login-html">
+		<input id="tab-2" type="radio" name="tab" class="sign-up" checked><label for="tab-2" class="tab">Create/Select a Chatroom</label>
+
+    <div class="login-form">
+
+      <form id="createroom" action="{{ url_for('index') }}" method="post">
+
+      <div class="sign-up-htm">
+        <div class="group">
+          <p> Welcome {{ name }}, Create a room </p>
+          <label for="user" class="label">Room Name</label>
+          <input id="roomname" name="channel" type="text" class="input">
+        </div>
+
+        {{ message }}
+        <div class="group">
+					<input type="submit" id="submitroom" class="button" value="Enter Room">
+				</div>
+
+          <div>
+				<div class="hr"></div>
+				</div>
+        </form>
+
+
+		</div>
+	</div>
+</div>
+{% endblock %}
